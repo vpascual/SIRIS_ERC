@@ -6,7 +6,7 @@ angular.module('ercApp', [
 ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/scatter', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         resolve: {
@@ -19,7 +19,20 @@ angular.module('ercApp', [
           ]
         }
       })
+      .when('/keywords', {
+        templateUrl: 'views/keywords.html',
+        controller: 'KeywordsCtrl',
+        resolve: {
+          data: ['$http', function($http) {
+            return $http.get('data/erc_keywords.csv').then(function(response) {
+              // console.log(response.data)
+              return d3.csv.parse(response.data);
+            })
+          }
+          ]
+        }
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/keywords'
       });
   });
