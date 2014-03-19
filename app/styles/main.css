@@ -2,6 +2,7 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 20px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -76,6 +77,33 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: gray;  
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+  color: gray;
+  opacity: 0.5;
+}
+
+.line {
+  fill: none;
+  /*stroke: steelblue;*/
+  stroke-width: 1px;
+}
+
+linechart {
+  visibility: hidden;
+  background-color: white;
+  position: absolute;
+  font: 9px sans-serif;
+}
+
+text {
+  cursor: default;
 }
 
 /*#vis {
